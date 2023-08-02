@@ -1,0 +1,27 @@
+{
+  "com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable": {
+    "cursor": {
+      "name": "white",
+      "color": "7f7f7fff"
+    },
+    "selection": {
+      "name": "white",
+      "color": "7f7f7f7f"
+    }
+  },
+  "com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle": {
+    "default": {
+      "fontColor": "ffffffff",
+      "cursor": "cursor",
+      "selection": "selection",
+      "background": "textfield"
+    }
+  },
+  "com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle": {
+    "default": {
+      "font": "default-font",
+      "up": "button-up",
+      "down": "button-down"
+    }
+  }
+}
