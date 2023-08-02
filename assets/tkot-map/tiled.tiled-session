@@ -1,0 +1,43 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "tmx.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "#conjunto-blocos-1": {
+            "dynamicWrapping": true
+        },
+        "tmx.tmx": {
+            "expandedGroupLayers": [
+                4
+            ],
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 545,
+                "y": 259
+            }
+        },
+        "tmx.tmx#conjunto-blocos-1": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "C:/Users/junio/OneDrive/Área de Trabalho/projetos/tkot-client/assets/tkot-map/assets/general-sprites",
+    "map.fixedSize": false,
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "tmx.tmx"
+    ],
+    "project": "tiled.tiled-project",
+    "property.type": "string",
+    "recentFiles": [
+        "tmx.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.type": 1
+}
