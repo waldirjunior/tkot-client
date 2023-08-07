@@ -15,18 +15,24 @@
             "expandedGroupLayers": [
                 4
             ],
-            "scale": 1,
-            "selectedLayer": 1,
+            "scale": 0.015625,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 545,
-                "y": 259
+                "x": 25600,
+                "y": 27520
             }
         },
         "tmx.tmx#conjunto-blocos-1": {
+            "dynamicWrapping": true,
             "scaleInDock": 1,
             "scaleInEditor": 1
+        },
+        "tmx.tmx#terreno": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
         }
     },
+    "frame.defaultDuration": 100,
     "last.imagePath": "C:/Users/junio/OneDrive/Área de Trabalho/projetos/tkot-client/assets/tkot-map/assets/general-sprites",
     "map.fixedSize": false,
     "map.lastUsedFormat": "tmx",
