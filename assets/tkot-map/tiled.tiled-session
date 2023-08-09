@@ -7,19 +7,25 @@
     "expandedProjectPaths": [
         "."
     ],
+    "file.lastUsedOpenFilter": "Todos os Ficheiros (*)",
     "fileStates": {
         "#conjunto-blocos-1": {
             "dynamicWrapping": true
         },
         "tmx.tmx": {
             "expandedGroupLayers": [
+                36,
+                30,
+                27,
+                25,
+                32,
                 4
             ],
-            "scale": 0.03125,
-            "selectedLayer": 0,
+            "scale": 1,
+            "selectedLayer": 7,
             "viewCenter": {
-                "x": 10944,
-                "y": 20832
+                "x": 15124,
+                "y": 15195
             }
         },
         "tmx.tmx#chests": {
@@ -35,25 +41,32 @@
             "scaleInDock": 1
         },
         "tmx.tmx#grass": {
+            "dynamicWrapping": true,
             "scaleInDock": 1
+        },
+        "tmx.tmx#monster": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "tmx.tmx#terreno": {
             "dynamicWrapping": true,
             "scaleInDock": 1
         },
         "tmx.tmx#water": {
-            "scaleInDock": 1
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         }
     },
-    "frame.defaultDuration": 100,
-    "last.imagePath": "C:/Users/junio/OneDrive/Área de Trabalho/projetos/tkot-client/assets/tkot-map/assets/general-sprites",
+    "frame.defaultDuration": 140,
+    "last.imagePath": "C:/Users/junio/OneDrive/Área de Trabalho/projetos/tkot-client/assets/tkot-map/assets/sprites-simple",
     "map.fixedSize": false,
     "map.lastUsedFormat": "tmx",
     "openFiles": [
         "tmx.tmx"
     ],
     "project": "tiled.tiled-project",
-    "property.type": "bool",
+    "property.type": "string",
     "recentFiles": [
         "tmx.tmx"
     ],
