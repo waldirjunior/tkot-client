@@ -1,18 +1,20 @@
-package com.thekingoftime.game.screens;
+package backup1.screens;
 
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.thekingoftime.game.TheKingOfTimeClient;
+import backup1.TheKingOfTimeClient;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.thekingoftime.game.shared.common.ButtonUtils;
-import com.thekingoftime.game.shared.common.LabelUtils;
-import com.thekingoftime.game.shared.common.TextFieldUtils;
+import backup1.shared.common.ButtonUtils;
+import backup1.shared.common.LabelUtils;
+import backup1.shared.common.TextFieldUtils;
 
 public class MainMenuScreen implements Screen {
 
@@ -21,18 +23,23 @@ public class MainMenuScreen implements Screen {
     private Stage stage;
     private TextField usernameField, passwordField;
 
+    private SpriteBatch batch;
+    private Texture backgroundTexture;
+
+
     public MainMenuScreen(TheKingOfTimeClient game) {
         this.game = game;
         stage = new Stage(new ScreenViewport());
+        batch = new SpriteBatch();
+
+        backgroundTexture = new Texture(Gdx.files.internal("imgs/background.jpeg"));
 
         TextButton button = ButtonUtils.createButton("Login");
         button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 // aqui você pode definir o que acontece quando o botão é clicado
-                String username = usernameField.getText();
-                String password = passwordField.getText();
-                System.out.println("Clicked: " + username + password);
+                login();
             }
         });
 
@@ -66,10 +73,25 @@ public class MainMenuScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
     }
 
+    private void login() {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        System.out.println("Clicked: " + username + password);
+
+        this.game.switchScreen(this.game.gameScreen);
+    }
+
     @Override
     public void render(float delta) {
         // renderize o menu principal aqui
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        // Desenha a imagem de fundo
+        batch.begin();
+        batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.end();
+
         stage.act(delta);
         stage.draw();
     }
@@ -77,11 +99,13 @@ public class MainMenuScreen implements Screen {
     @Override
     public void dispose() {
         stage.dispose();
+        backgroundTexture.dispose();
     }
 
     @Override
     public void resize(int width, int height) {
         // lidar com o redimensionamento da tela
+        stage.getViewport().update(width, height, true);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.thekingoftime.game.shared.common;
+package backup1.shared.common;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;

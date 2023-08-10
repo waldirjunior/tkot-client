@@ -1,9 +1,9 @@
-package com.thekingoftime.game;
+package backup1;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
-import com.thekingoftime.game.screens.GameScreen;
-import com.thekingoftime.game.screens.MainMenuScreen;
+import backup1.screens.GameScreen;
+import backup1.screens.MainMenuScreen;
 
 public class TheKingOfTimeClient extends Game {
 
@@ -15,7 +15,8 @@ public class TheKingOfTimeClient extends Game {
 		mainMenuScreen = new MainMenuScreen(this);
 		gameScreen = new GameScreen(this);
 
-		setScreen(mainMenuScreen);
+		//setScreen(mainMenuScreen);
+		setScreen(gameScreen);
 	}
 
 	public void switchScreen(Screen screen) {

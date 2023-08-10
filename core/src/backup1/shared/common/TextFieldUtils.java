@@ -1,4 +1,4 @@
-package com.thekingoftime.game.shared.common;
+package backup1.shared.common;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
