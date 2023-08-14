@@ -1,16 +1,11 @@
 package com.thekingoftime.game.domains.game.map.monsters;
 
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.*;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.thekingoftime.game.domains.game.map.objects.shared.MapObjectsObject;
+import com.thekingoftime.game.domains.game.map.monsters.entities.MonsterEntity;
 import com.thekingoftime.game.domains.game.shared.Shared;
 import com.thekingoftime.game.domains.game.shared.ports.ServicesInterface;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MonsterService implements ServicesInterface {
 
@@ -23,10 +18,11 @@ public class MonsterService implements ServicesInterface {
             for (MapObject objectMap : layer.getObjects()) {
                 if (objectMap instanceof TextureMapObject) {
                     TextureMapObject textureObj = (TextureMapObject) objectMap;
-                    String nameMonster = "Globin";
+
+                    var monsterEntity = new MonsterEntity().createGenericMonster();
 
                     MonsterActor mtObject =
-                            new MonsterActor(nameMonster, textureObj.getTextureRegion(), textureObj.getX(), textureObj.getY());
+                            new MonsterActor(monsterEntity, textureObj.getTextureRegion(), textureObj.getX(), textureObj.getY());
 
                     Shared.getInstance().getData().stage.addActor(mtObject);
                 }

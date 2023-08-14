@@ -3,6 +3,7 @@ package com.thekingoftime.game.domains.game.map.monsters.entities;
 public class MonsterEntity {
 
     public String name;
+    public float speed;
     public float patrolAreaX;
     public float patrolAreaY;
     public float retreatDistance;
@@ -22,6 +23,7 @@ public class MonsterEntity {
         viewDistancePlayer = 200f;
         idleTime = 2f; // Ficar parado por 2 segundos
         walkTime = 3f; // Andar por 3 segundos
+        speed = 100f;
 
         return this;
     }

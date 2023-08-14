@@ -12,12 +12,11 @@ public class MovimentUseCase {
     public enum Direction {
         UP, RIGHT, DOWN, LEFT, NONE
     }
-    private float speed = 100f; // Velocidade do monstro
+    private float speed; // Velocidade do monstro
     private Rectangle patrolArea; // Área que o monstro patrulha
     private Vector2 targetPosition; // Posição-alvo do monstro
     public Direction currentDirection;
     public MonsterActor monsterActor;
-    private static final float VIEW_DISTANCE = 200;
     private AnimationEntity animation;
 
     public boolean logicRetreat = false;
@@ -26,8 +25,9 @@ public class MovimentUseCase {
     public MovimentUseCase(MonsterActor monsterActor, float x, float y, AnimationEntity animation) {
         this.monsterActor = monsterActor;
         this.animation = animation;
+        this.speed = monsterActor.monsterEntity.speed;
 
-        patrolArea = new Rectangle(x, y, 1000, 1000);
+        patrolArea = new Rectangle(x, y, monsterActor.monsterEntity.patrolAreaX, monsterActor.monsterEntity.patrolAreaY);
         targetPosition = new Vector2(monsterActor.getX(), monsterActor.getY()); // Inicialmente, o alvo é a posição atual
 
         currentDirection = Direction.NONE; // Direção inicial (parado)
@@ -54,7 +54,7 @@ public class MovimentUseCase {
                 Vector2 directionToPlayer = new Vector2(monsterActor.playerActor.getX() - monsterActor.getX(),
                         monsterActor.playerActor.getY() - monsterActor.getY()).nor();
                 Vector2 retreatDirection = directionToPlayer.scl(-1); // Inverter direção
-                float retreatDistance = 10f; // Distância para recuar
+                float retreatDistance = monsterActor.monsterEntity.retreatDistance; // Distância para recuar
                 monsterActor.setPosition(monsterActor.getX() + retreatDirection.x * retreatDistance, monsterActor.getY() + retreatDirection.y * retreatDistance);
             }
         } else {
@@ -69,7 +69,7 @@ public class MovimentUseCase {
         Vector2 monsterPosition = new Vector2(monsterActor.getX(), monsterActor.getY());
         float distanceToPlayer = monsterPosition.dst(playerPosition);
 
-        if (distanceToPlayer <= VIEW_DISTANCE) {
+        if (distanceToPlayer <= monsterActor.monsterEntity.viewDistancePlayer) {
             monsterActor.targetPlayer = true;
 
             attackingMonsterUseCase.execute(this, delta, distanceToPlayer);

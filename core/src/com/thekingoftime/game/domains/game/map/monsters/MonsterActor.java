@@ -16,12 +16,7 @@ import com.thekingoftime.game.domains.game.shared.Shared;
 
 public class MonsterActor extends Actor {
     private TextureRegion textureRegion;
-    private String name; // Nome do monstro
-
-    // private PlayerActor player; // Referência ao jogador
     private float stateTime; // Tempo acumulado no estado atual
-    private float idleTime; // Duração do estado parado
-    private float walkTime; // Duração do estado de movimento
     private boolean isWalking; // Se o monstro está andando ou parado
     public boolean targetPlayer; // Se o monstro está perseguindo o jogador
     private AnimationEntity animation;
@@ -30,22 +25,21 @@ public class MonsterActor extends Actor {
     private float initialX, initialY;
     public MonsterEntity monsterEntity;
 
-    public MonsterActor(String name, TextureRegion textureRegion, float x, float y) {
+    public MonsterActor(MonsterEntity monsterEntity, TextureRegion textureRegion, float x, float y) {
         this.textureRegion = textureRegion;
-        this.name = name;
+        this.monsterEntity = monsterEntity;
 
         setPosition(x, y);
         setSize(textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
 
         initialX = x;
         initialY = y;
-        idleTime = 2f; // Ficar parado por 2 segundos
-        walkTime = 3f; // Andar por 3 segundos
+
         isWalking = false;
         stateTime = 0f;
         targetPlayer = false;
 
-        animation = new CreateTextureUseCase(name).execute();
+        animation = new CreateTextureUseCase(monsterEntity.name).execute();
         movimentUseCase = new MovimentUseCase(this, x, y, animation);
     }
 
@@ -54,7 +48,7 @@ public class MonsterActor extends Actor {
         stateTime += delta;
 
         if (isWalking) {
-            if (stateTime > walkTime && !targetPlayer) {
+            if (stateTime > monsterEntity.walkTime && !targetPlayer) {
                 // Mudar para o estado parado
                 isWalking = false;
                 stateTime = 0f;
@@ -63,7 +57,7 @@ public class MonsterActor extends Actor {
                 movimentUseCase.execute(delta);
             }
         } else {
-            if (stateTime > idleTime) {
+            if (stateTime > monsterEntity.walkTime) {
                 // Mudar para o estado de movimento
                 isWalking = true;
                 stateTime = 0f;
