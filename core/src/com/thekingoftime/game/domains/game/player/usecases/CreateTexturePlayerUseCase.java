@@ -5,10 +5,7 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.thekingoftime.game.domains.game.player.entity.AnimationEntity;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.thekingoftime.game.domains.game.entities.AnimationEntity;
 
 public class CreateTexturePlayerUseCase {
     private static final float FRAME_DURATION = 0.1f; // duração de cada frame da animação

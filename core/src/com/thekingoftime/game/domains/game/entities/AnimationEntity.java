@@ -1,10 +1,8 @@
-package com.thekingoftime.game.domains.game.player.entity;
+package com.thekingoftime.game.domains.game.entities;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-
-import java.util.List;
 
 public class AnimationEntity {
     public Animation<TextureRegion> leftAnimation;
